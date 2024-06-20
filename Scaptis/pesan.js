@@ -1,115 +1,119 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Select elements from HTML
     let musthaveGrid = document.querySelector('.musthave__grid'); // Container for product cards
     let musthaveNav = document.querySelector('.musthave__nav'); // Navigation links for categories
 
     let products = [
         {
             id: 1,
-            name: 'Basic long sleeve T-shirt',
+            name: 'Magin Olive 32 Knit Sweater',
             image: 'knit.jpeg',
             price: 159000,
             category: 'man'
         },
         {
             id: 2,
-            name: 'Ribbed T-shirt with buttons',
+            name: 'Moutley White Oversize',
             image: 'oversize.jpeg',
             price: 130000,
             category: 'man'
         },
         {
             id: 3,
-            name: 'Jacket with side strips',
+            name: 'FMC Parka Jacket Green Kaiju',
             image: 'jacket.jpeg',
             price: 329000,
             category: 'man'
         },
         {
             id: 4,
-            name: 'High-heel tubular sandals',
+            name: '3SCDN Polo Fracture',
             image: 'polo.jpeg',
             price: 69000,
             category: 'man'
         },
         {
             id: 5,
-            name: 'Coral fabric belt bag',
+            name: 'Coral Dulouvere Long Sleeve',
             image: 'wmlong.jpeg',
             price: 89000,
             category: 'women'
         },
         {
             id: 6,
-            name: 'Piggy skater slogan T-shirt',
+            name: 'Midnight Oversize',
             image: 'wmtshirt.jpeg',
             price: 59000,
             category: 'women'
         },
         {
             id: 7,
-            name: 'White platform boots',
+            name: 'Lounder Woman Knit',
             image: 'wmknit.jpeg',
             price: 59000,
             category: 'women'
         },
         {
             id: 8,
-            name: 'Sweater vest with sleeves',
+            name: 'Greenlight Women 2 in 1 Bags',
             image: 'wmbag.jpeg',
             price: 259000,
             category: 'bag'
         },
         {
             id: 9,
-            name: 'Coral fabric belt bag',
+            name: 'SSST Zipper Kids',
             image: 'kidsjacket.jpeg',
             price: 129000,
             category: 'kids'
         },
         {
             id: 10,
-            name: 'Piggy skater slogan T-shirt',
+            name: '3SCND Baseball Kids',
             image: 'kidsoversize.jpeg',
             price: 59000,
             category: 'kids'
         },
         {
             id: 11,
-            name: 'White platform boots',
+            name: 'Best Friends Girl T-Shirt',
             image: 'kidswmtshirt.jpeg',
             price: 49000,
             category: 'kids'
         }
     ];
 
-    // Function to initialize the app and populate products
     function initApp() {
         products.forEach(product => {
             let card = createMustHaveCard(product);
             musthaveGrid.appendChild(card);
         });
 
-        // Populate navigation links for categories
         populateCategories();
     }
 
-    // Function to create a must have card based on product data
     function createMustHaveCard(product) {
+        let link = document.createElement('a');
+        link.href = `product.html?id=${product.id}`; // Link ke halaman detail produk
+        link.classList.add('card-link'); // Optional: Add a class for styling purposes
+
         let card = document.createElement('div');
         card.classList.add('musthave__card');
         card.setAttribute('data-category', product.category);
 
+        // Menyusun HTML card dengan harga terformat
         card.innerHTML = `
             <img src="assets/${product.image}" alt="${product.name}" />
-            <h4>${product.name}</h4>
-            <p><del>${formatRupiah(45000)}</del> ${formatRupiah(product.price)}</p>
+            <div class="musthave__content">
+                <h4>${product.name}</h4>
+                <p class="price">${formatRupiah(product.price)}</p>
+            </div>
         `;
 
-        return card;
+        link.appendChild(card);
+
+        return link; // Mengembalikan link, bukan card
     }
 
-    // Function to populate category navigation links
     function populateCategories() {
         let categories = ['all', 'man', 'women', 'bag', 'kids'];
 
@@ -122,28 +126,27 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Function to filter products based on selected category
     function filterProducts(event) {
         event.preventDefault();
-        let category = event.target.getAttribute('href').slice(1); // Get category from href
+        let category = event.target.getAttribute('href').slice(1); // Mendapatkan kategori dari href
 
-        // Show/hide product cards based on selected category
         let cards = document.querySelectorAll('.musthave__card');
         cards.forEach(card => {
             let cardCategory = card.getAttribute('data-category');
+
+            // Tampilkan atau sembunyikan card berdasarkan kategori yang dipilih
             if (category === 'all' || cardCategory === category) {
                 card.style.display = 'block';
+                musthaveGrid.insertBefore(card, musthaveGrid.firstChild); // Pindahkan card ke awal kontainer
             } else {
                 card.style.display = 'none';
             }
         });
     }
 
-    // Function to format price to Indonesian Rupiah (IDR)
     function formatRupiah(price) {
         return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(price);
     }
 
-    // Call the initApp function to initialize the application
-    initApp();
+    initApp(); // Panggil fungsi inisialisasi untuk memulai aplikasi
 });

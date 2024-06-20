@@ -14,19 +14,41 @@
 <body>
   <nav class="section__container nav__container">
     <div class="logo">
-      <a href="#" class="nav__logo"><img src="assets/logo.png" alt=""></a>
+      <a href="index.html" class="nav__logo"><img src="assets/logo.png" alt=""></a>
     </div>
     <ul class="nav__links">
       <li class="link"><a href="index.html">HOME</a></li>
       <li class="link"><a href="katalog.html">SHOP</a></li>
-      <li class="link"><a href="artikel.html">PAGES</a></li>
-      <li class="link"><a href="#">BLOG</a></li>
-      <li class="link"><a href="#">WHISLIST</a></li>
+      <li class="link"><a href="artikel.html">ARTICLE</a></li>
+      <li class="link"><a href="history.html">HISTORY</a></li>
     </ul>
     <div class="nav__icons">
       <span><i class="ri-shield-user-line"></i></span>
-      <span><i class="ri-search-line"></i></span>
-      <span><i class="ri-shopping-bag-2-line"></i></span>
+      <div class="search-container">
+        <span id="search-icon"><i class="ri-search-line"></i></span>
+        <input type="text" id="search-input" placeholder="Search...">
+      </div>
+    <!-- Cart Popup -->
+    <span><i class="ri-shopping-bag-2-line"></i></span>
+    <div class="cart-popup">
+      <div class="cart-popup-header">Shopping Cart</div>
+      <div class="cart-popup-item">
+        <img src="assets/jacket.jpeg" alt="Item 1">
+        <div class="cart-popup-item-details">
+            <div class="cart-popup-item-title">FMC Parka Jacket Green Kaiju</div>
+            <div class="cart-popup-item-price">Rp 329.000</div>
+        </div>
+    </div>
+    <div class="cart-popup-item">
+        <img src="assets/wmtshirt.jpeg" alt="Item 2">
+        <div class="cart-popup-item-details">
+            <div class="cart-popup-item-title">Midnight oversize</div>
+            <div class="cart-popup-item-price">Rp 59.000</div>
+        </div>
+    </div>
+      <div class="cart-popup-footer">
+        <a href="payment.html" class="btn">Checkout</a>
+      </div>
     </div>
   </nav>
 
@@ -64,7 +86,8 @@
           <p class="sale__subtitle">Man Set</p>
           <h4 class="sale__title">sale <span>40%</span> off</h4>
           <p class="sale__subtitle">- DON'T MISS -</p>
-          <button class="btn sale__btn">SHOP NOW</button>
+          <br>
+          <a href="katalog.html" class="btn sale__btn">SHOP NOW</a>
         </div>
       </div>
       <div class="sale__card">
@@ -73,7 +96,8 @@
           <p class="sale__subtitle">Bag's</p>
           <h4 class="sale__title">sale <span>25%</span> off</h4>
           <p class="sale__subtitle">- DON'T MISS -</p>
-          <button class="btn sale__btn">SHOP NOW</button>
+          <br>
+          <a href="katalog.html" class="btn sale__btn">SHOP NOW</a>
         </div>
       </div>
       <div class="sale__card">
@@ -82,7 +106,8 @@
           <p class="sale__subtitle">Jackets</p>
           <h4 class="sale__title">sale <span>20%</span> off</h4>
           <p class="sale__subtitle">- DON'T MISS -</p>
-          <button class="btn sale__btn">SHOP NOW</button>
+          <br>
+          <a href="katalog.html" class="btn sale__btn">SHOP NOW</a>
         </div>
       </div>
     </div>
@@ -93,23 +118,23 @@
     <div class="musthave__grid">
       <div class="musthave__card">
         <img src="assets/wmbag.jpeg" alt="must have" />
-        <h4>Basic Pocket Bag's</h4>
-        <p><del>$45.00</del> $75.00</p>
+        <h4>Greenlight Women's 2 in 1 Totebag   </h4>
+        <p><del>Rp. 300.000</del> Rp. 259.000</p>
       </div>
       <div class="musthave__card">
         <img src="assets/oversize.jpeg" alt="must have" />
         <h4>Moutley White Oversize</h4>
-        <p><del>$45.00</del> $75.00</p>
+        <p><del>Rp. 159.000</del> Rp.79.000</p>
       </div>
       <div class="musthave__card">
         <img src="assets/kidswmtshirt.jpeg" alt="must have" />
         <h4>Best Friends Girl T-Shirt</h4>
-        <p><del>$45.00</del> $75.00</p>
+        <p><del>Rp. 89.000</del> Rp. 49.000</p>
       </div>
       <div class="musthave__card">
         <img src="assets/knit.jpeg" alt="must have" />
         <h4>Magin Olive 32 Knit Sweater</h4>
-        <p><del>$45.00</del> $75.00</p>
+        <p><del>Rp. 199.000</del> Rp. 99.000</p>
       </div>
     </div>
   </section>
@@ -131,7 +156,7 @@
             <p>
               Brand Kolaborasi Terbaru dari 3SCND dan KaraFuru yang menyajikan Trend Fashion Style yang Edgy.
             </p>
-            <a href="#"><i class="ri-arrow-right-line"></i></a>
+            <a href="karafuru.html"><i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
         <div class="news__card">
@@ -140,7 +165,7 @@
             <p>
               NEW APARELLS <i class="ri-checkbox-blank-circle-fill"></i>
               <span>JAMES SIMSON</span>
-              <i class="ri-checkbox-blank-circle-fill"></i> FEB 15, 2024  
+              <i class="ri-checkbox-blank-circle-fill"></i> FEB 15, 2024
             </p>
             <h4>SSST</h4>
             <hr />
@@ -234,6 +259,8 @@
       </form>
     </div>
   </div>
+
+  <script src="tambahan.js"></script>
 </body>
 
 </html>
